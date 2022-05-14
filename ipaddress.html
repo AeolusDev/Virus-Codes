@@ -3,10 +3,23 @@
     <title>Ip address logger</title>
   </head>
   <body>
-    <script>
-      $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
-  console.log(JSON.stringify(data, null, 2));
-});
+  <script>
+  const api_url = 
+        "https://api.db-ip.com/v2/free/self";
+    
+  // Defining async function
+  async function getapi(url) {
+      
+      // Storing response
+      const response = await fetch(url);
+      
+      // Storing data in form of JSON
+      var data = await response.json();
+      console.log(data);
+  }
+  // Calling that async function
+  getapi(api_url);
+    
     </script>
-  </body>
+ </body>
 </html>
