@@ -1,26 +1,25 @@
 <html>
-  <head>
-    <title>Ip address logger</title>
-  </head>
-  <body>
-  <script>
-    //Example working at https://dev--test.captaincool6333.autocode.gg/
-  const api_url = 
-        "https://api.db-ip.com/v2/free/self";
-    
-  // Defining async function
-  async function getapi(url) {
-      
-      // Storing response
-      const response = await fetch(url);
-      
-      // Storing data in form of JSON
-      var data = await response.json();
-      console.log(data);
-  }
-  // Calling that async function
-  getapi(api_url);
-    
-    </script>
- </body>
+    <title>Just an innocent site</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <body>
+        <h1>Psst... By any chance is this your IP address?</h1>
+        <p id="ip"></p>
+        <script>
+        const options = {
+            method: 'GET',
+            url: 'http://api.ipstack.com/',
+            headers: {
+                'access_key': 'df90ec8e24a061161429e29e5cb21ddc'
+             }
+        };
+        
+        try {
+            const response = await axios.request(options);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+        document.getElementById("ip").innerHTML = response.data;            
+            </script>
+    </body>
 </html>
